@@ -3,20 +3,20 @@
 <details>
 <summary>Task-1</summary>
 
-In this program we will be using **RISC-V GNU Compiler Toolchain** to compile our c programs into risc v instructions. 
-Then we will be using **Iverilog** to compile & simulate our verilog files. 
-We will be using **GTKwave** to view the relevant waveforms obtained from verilog simulation.
-Also we will be using **Yosys** to synthesis our RTL.
++ In this program we will be using **RISC-V GNU Compiler Toolchain** to compile our c programs into risc v instructions. 
++ Then we will be using **Iverilog** to compile & simulate our verilog files. 
++ We will be using **GTKwave** to view the relevant waveforms obtained from verilog simulation.
++ Also we will be using **Yosys** to synthesis our RTL.
 ### Steps to install git
 
 ```
-sudo apt-get install git
-git clone https://github.com/kunalg123/vsdflow.git
-cd vsdflow
-chmod 777 opensource_eda_tool_install.sh
-./opensource_eda_tool_install.sh
-./vsdflow spi_slave_design_details.csv
-./vsdflow picorv32_design_details.csv
+ sudo apt-get install git
+ git clone https://github.com/kunalg123/vsdflow.git
+ cd vsdflow
+ chmod 777 opensource_eda_tool_install.sh
+ ./opensource_eda_tool_install.sh
+ ./vsdflow spi_slave_design_details.csv
+ ./vsdflow picorv32_design_details.csv
 
 ```
 ![1](https://github.com/Amrutha3515/vsdmini/assets/150571663/7d1db528-055d-4aa6-a059-d648f1e5b220)
