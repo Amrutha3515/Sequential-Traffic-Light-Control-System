@@ -57,7 +57,7 @@ You can verify the installation of yosys as shown below
 ### Steps to install gcc 
 
 ```
-$ sudo apt install gcc
+ sudo apt install gcc
 ```
 you can verify gcc installation as shown below
 ![2-2](https://github.com/Amrutha3515/vsdmini/assets/150571663/30a02b54-cb24-4ea6-b147-f85c85bcbf03)
@@ -66,8 +66,8 @@ you can verify gcc installation as shown below
 
 
 ```
-$ sudo apt-get update
-$ sudo apt-get -y install iverilog
+ sudo apt-get update
+ sudo apt-get -y install iverilog
 ```
 ![image](https://github.com/Amrutha3515/vsdmini/assets/150571663/8aa6bf8d-359f-47d8-be9d-ae0f808a5fbc)
 
@@ -79,7 +79,83 @@ The installation can be verified as shown below
 ## Steps to install gtkwave
 
 ```
-$ sudo apt update
-$ sudo apt install gtkwave
+ sudo apt update
+ sudo apt install gtkwave
 ```
 ![3-2](https://github.com/Amrutha3515/vsdmini/assets/150571663/55a2e7d5-f7e5-4a3f-ab1f-7cf1b3fef9e9)
+
+# Compile a `c` Program Using Riscv Compiler
+
+
+## Installing Leafpad Text Editor:
+
+
+We will be using `leafpad` text editor to write our `c` program. The text editor can be installed as shown below (applicable for ubuntu 22.04 version).
+
+
+```
+sudo snap install leafpad 
+```
+## The Program:
+
+Navigate to the home directory and create a new `.c` file in leafpad as shown below,
+
+```
+ cd 
+ leafpad sum1ton.c &
+```
+write a `c program` and use the `save button`or use `ctrl + s`  to save the file. 
+
+```
+#include <stdio.h>
+int main(){
+    int sum = 0, i, n = 5;
+    for (i=1; i<=n; ++i){
+        sum += i;
+    }
+    printf("Sum of numbers from 1 to %d is %d \n", n, sum);
+    return 0;
+}
+
+```
+
+![8](https://github.com/Amrutha3515/vsdmini/assets/150571663/f23f70a9-04bf-4588-9a1b-f1e94de60a76)
+
+## Compilation & Execution
+
+
+Compile and run the program as below
+
+```
+ gcc program_name.c 
+ ./a.out 
+```
+in my case it is sum1ton.c
+![9](https://github.com/Amrutha3515/vsdmini/assets/150571663/970bafec-bd71-4319-8cd2-d82b524bd43a)
+
+To view the code you have written and compile the program in riscv gcc compiler follow the below instruction.
+
+```
+cat program_name.c
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o program_name.o program_name.c
+```
+in my case it is sum1ton.o sum1ton.c
+
+![14](https://github.com/Amrutha3515/vsdmini/assets/150571663/5120c785-1a2b-46ad-b493-d79e0d6a3f45)
+
+Now open a new tab in terminal using `ctrl + shift + T` and follow below instruction to open the assembly code for the c program we had executed earlier.
+
+```
+$ riscv64-unknown-elf-objdump -d program_name.o
+```
+to search for `main()` section of our program below the below step,
+
+```
+$ riscv64-unknown-elf-objdump -d program_name.o | less
+: /main
+```
+
+press `n` key to scrolldown & press `q` to quit.
+
+
+
