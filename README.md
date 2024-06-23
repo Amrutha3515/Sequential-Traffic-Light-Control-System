@@ -1,4 +1,4 @@
-# vsdmini
+# VSDSquadron Mini 
 
 <details>
 <summary>Task-1</summary>
@@ -199,3 +199,13 @@ we can observe that the Number of instructions is reduced with -Ofast
 + https://github.com/riscv-collab/riscv-gnu-toolchain
 + https://photos.onedrive.com/share/E0E9B5EEF85B162E!105257?cid=E0E9B5EEF85B162E&resId=E0E9B5EEF85B162E!105257&authkey=!AFLC_zCyiQ0i1co&ithint=video&e=gdA9TW
 + https://photos.onedrive.com/share/E0E9B5EEF85B162E!56283?cid=E0E9B5EEF85B162E&resId=E0E9B5EEF85B162E!56283&authkey=!AKfV5WV4yZsaIAc&ithint=video&e=ycX4fO
+</details>
+<details >
+ <summary>Task-2</summary>
+</details>
+<details >
+ <summary>Task-3</summary>
+</details>
+<details >
+ <summary>Task-4</summary>
+</details>
