@@ -146,16 +146,56 @@ in my case it is sum1ton.o sum1ton.c
 Now open a new tab in terminal using `ctrl + shift + T` and follow below instruction to open the assembly code for the c program we had executed earlier.
 
 ```
-$ riscv64-unknown-elf-objdump -d program_name.o
+riscv64-unknown-elf-objdump -d program_name.o
 ```
 to search for `main()` section of our program below the below step,
 
 ```
-$ riscv64-unknown-elf-objdump -d program_name.o | less
+riscv64-unknown-elf-objdump -d program_name.o | less
 : /main
 ```
 
 press `n` key to scrolldown & press `q` to quit.
 
+![t-1](https://github.com/Amrutha3515/vsdmini/assets/150571663/dbfee5f1-1518-4b72-94e0-233e53a7176c)
+
+The above image shows the `main()` section of my program. And as we can see there are 15 instructions in the `main()`. Address of each instruction can be seen. The address of the next instruction is `current address + 4 bytes`. <br>
+<br> 
+**Total Number of Instructions = (Address of the first instruction of the next instruction block -  Address of the first instruction of the current instruction block) / 4**
+<br>
+<br>
+Therefore, Total number of instructions in main() =  (101c0 - 10184)/4 = (3c/4)<sub>**16**</sub>=(F)<sub>**16**</sub> = (**15**)<sub>**10**</sub>
 
 
+## Role of -O1 & -Ofast: 
+
+**-O** is a flag which directs the compiler to what extent it needs to optimize a given program, the optimization may be in terms of reducing binary size of the program while compramizing of the speed of execution or optimize the speed of exceution while increasing the binary program size. There are various levels of optimization,
+<br>
+**-O1** : This flag offers basic optimization, balances binary code size as well as speed. <br>
+**-Ofast** : This flag offers aggressive optimizations. It prioritizes speed of execution over the size of compiled binary program size. <br>
+
+Let us compile the same program with **-Ofast** flag.
+
+
+```
+riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o program_name.o program_name.c
+# In a new terminal tab
+riscv64-unknown-elf-objdump -d program_name.o | less
+: /main
+```
+![t](https://github.com/Amrutha3515/vsdmini/assets/150571663/a39fcea4-6911-48e9-9acb-e50e19db3a6c)
+
+The above image shows the `main()` section of my program. And as we can see there are 12 instructions in the `main()`. Address of each instruction can be seen. The address of the next instruction is `current address + 4 bytes`. <br>
+<br> 
+**Total Number of Instructions = (Address of the first instruction of the next instruction block -  Address of the first instruction of the current instruction block) / 4**
+<br>
+<br>
+Therefore, Total number of instructions in main() =  (101e0 - 101bo)/4 = (30/4)<sub>**16**</sub>=(C)<sub>**16**</sub> = (**12**)<sub>**10**</sub>
+
+we can observe that the Number of instructions is reduced with -Ofast
+
+# Reference:
++ https://www.udemy.com/course/vsd-a-complete-guide-to-install-open-source-eda-tools/
++ https://github.com/riscv-collab/riscv-gnu-toolchain
++ https://photos.onedrive.com/share/E0E9B5EEF85B162E!105257?cid=E0E9B5EEF85B162E&resId=E0E9B5EEF85B162E!105257&authkey=!AFLC_zCyiQ0i1co&ithint=video&e=gdA9TW
++ https://photos.onedrive.com/share/E0E9B5EEF85B162E!56283?cid=E0E9B5EEF85B162E&resId=E0E9B5EEF85B162E!56283&authkey=!AKfV5WV4yZsaIAc&ithint=video&e=ycX4fO
