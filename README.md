@@ -202,6 +202,119 @@ we can observe that the Number of instructions is reduced with -Ofast
 </details>
 <details >
  <summary>Task-2</summary>
+
+ As my project is Traffic Flow Controller: Sequential Traffic Light Control System.
+ Assuming we have two directions (North-South and East-West) with three LEDs (Red, Yellow, Green) for each direction.
+ The sample C code for this project is 
+ ```
+#include <stdio.h>
+#include <unistd.h> // for sleep function
+
+// Define the traffic light states
+typedef enum {
+    RED,
+    GREEN,
+    YELLOW
+} TrafficLightState;
+
+// Define the directions
+typedef enum {
+    NS,  // North-South
+    EW   // East-West
+} Direction;
+
+// Structure to represent a traffic light for a direction
+typedef struct {
+    TrafficLightState state;
+    Direction direction;
+} TrafficLight;
+
+// Function to display the current state of the traffic light
+void displayLight(TrafficLight *light) {
+    const char *dir = (light->direction == NS) ? "North-South" : "East-West";
+    switch (light->state) {
+        case RED:
+            printf("%s Direction: Red Light\n", dir);
+            break;
+        case GREEN:
+            printf("%s Direction: Green Light\n", dir);
+            break;
+        case YELLOW:
+            printf("%s Direction: Yellow Light\n", dir);
+            break;
+    }
+}
+
+int main() {
+    TrafficLight nsLight = {RED, NS}; // North-South traffic light
+    TrafficLight ewLight = {GREEN, EW}; // East-West traffic light
+
+    while (1) {
+        displayLight(&nsLight);
+        displayLight(&ewLight);
+
+        // Control the North-South traffic light
+        switch (nsLight.state) {
+            case RED:
+                sleep(15);  // Red light for 15 seconds
+                nsLight.state = GREEN;
+                ewLight.state = RED;
+                break;
+            case GREEN:
+                sleep(10);  // Green light for 10 seconds
+                nsLight.state = YELLOW;
+                break;
+            case YELLOW:
+                sleep(5);  // Yellow light for 5 seconds
+                nsLight.state = RED;
+                ewLight.state = GREEN;
+                break;
+        }
+
+        // Control the East-West traffic light
+        switch (ewLight.state) {
+            case RED:
+                // Red light duration is managed by North-South traffic light
+                break;
+            case GREEN:
+                sleep(10);  // Green light for 10 seconds
+                ewLight.state = YELLOW;
+                break;
+            case YELLOW:
+                sleep(5);  // Yellow light for 5 seconds
+                ewLight.state = RED;
+                nsLight.state = GREEN;
+                break;
+        }
+    }
+
+    return 0;
+}
+
+```
+To complie this code with RISC-V GCC. we can use the following commands on the ubuntu terminal .
+
+```
+leafpad demo.c
+```
+in my case demo is my file name , we can use any other names as you want and write the code that suitable for your selected project and save the file.
+
+![VirtualBox_vsdmini_23_06_2024_20_54_14](https://github.com/Amrutha3515/vsdmini/assets/150571663/cb999ca8-9e44-4a9a-b23f-b2638d063c8e)
+![VirtualBox_vsdmini_23_06_2024_20_53_42](https://github.com/Amrutha3515/vsdmini/assets/150571663/e6e353b7-1055-4219-80a8-3d571fd25987)
+To compile andview the output of the code use the command
+```
+gcc demo.c
+./a.out
+```
+![VirtualBox_vsdmini_23_06_2024_22_07_49](https://github.com/Amrutha3515/vsdmini/assets/150571663/30e9e206-026c-45b0-9037-ab7c3510f3c7)
+
+As I Mentioned in the code i gave the delay of 15 seconds to 5 seconds varying according to the colour of the light to change the state. we can observe that from the following video.
+
+ 
+
+https://github.com/Amrutha3515/vsdmini/assets/150571663/4631c83b-d29a-410c-86f6-b619a27bd191
+
+
 </details>
 <details >
  <summary>Task-3</summary>
