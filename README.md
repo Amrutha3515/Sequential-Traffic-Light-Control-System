@@ -308,12 +308,17 @@ gcc demo.c
 ```
 ![VirtualBox_vsdmini_23_06_2024_22_07_49](https://github.com/Amrutha3515/vsdmini/assets/150571663/30e9e206-026c-45b0-9037-ab7c3510f3c7)
 
-As I Mentioned in the code i gave the delay of 15 seconds to 5 seconds varying according to the colour of the light to change the state. we can observe that from the following video.
+As I Mentioned in the code i gave the delay of 15 seconds to 5 seconds varying according to the colour of the light to change the state.
 
  
 
 https://github.com/Amrutha3515/vsdmini/assets/150571663/4631c83b-d29a-410c-86f6-b619a27bd191
 
+From the video we can see that the no colour matches in the two directions. if the North- south direction is Red then the east -west direction is green. <br>
+
+similarly, if the North-south direction is green then the east-west direction is red.
+
+From this we can control the traffic light how and when to change the state of light. 
 
 </details>
 <details >
