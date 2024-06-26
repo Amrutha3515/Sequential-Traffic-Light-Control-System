@@ -202,7 +202,8 @@ we can observe that the Number of instructions is reduced with -Ofast
 </details>
 <details >
  <summary>Task-2</summary>
-
+ 
+ # Project: Traffic Flow Controller: Sequential Traffic Light Control System
  As my project is Traffic Flow Controller: Sequential Traffic Light Control System.
  Assuming we have two directions (North-South and East-West) with three LEDs (Red, Yellow, Green) for each direction.
  The sample C code for this project is 
@@ -323,6 +324,150 @@ From this we can control the traffic light how and when to change the state of l
 </details>
 <details >
  <summary>Task-3</summary>
+
+ ### This Task is to do the spike simulation to the C code that we have done in Task-2.
+
+ The code that is run using GCC Complier is again runs using RISCV and Spike. <br>
+ As i started compiling using the RISC-V, i got an error with sleep function so i simply changed the sleep with delay function as follows
+ ```
+#include <stdio.h>
+#include <unistd.h> // for sleep function
+
+// Define the traffic light states
+typedef enum {
+   RED,
+   GREEN,
+   YELLOW
+} TrafficLightState;
+
+// Define the directions
+typedef enum {
+   NS,  // North-South
+   EW   // East-West
+} Direction;
+
+// Structure to represent a traffic light for a direction
+typedef struct {
+   TrafficLightState state;
+   Direction direction;
+} TrafficLight;
+
+// Function to display the current state of the traffic light
+void displayLight(TrafficLight *light) {
+   const char *dir = (light->direction == NS) ? "North-South" : "East-West";
+   switch (light->state) {
+       case RED:
+           printf("%s Direction: Red Light\n", dir);
+           break;
+       case GREEN:
+           printf("%s Direction: Green Light\n", dir);
+           break;
+       case YELLOW:
+           printf("%s Direction: Yellow Light\n", dir);
+           break;
+   }
+}
+void delay(int seconds) {
+    volatile unsigned int count;
+    for (int i = 0; i < seconds * 1000000; i++) {
+        count++;
+    }
+}
+int main() {
+   TrafficLight nsLight = {RED, NS}; // North-South traffic light
+   TrafficLight ewLight = {GREEN, EW}; // East-West traffic light
+
+   int cycles=5
+   while (cycles > 0) {
+       displayLight(&nsLight);
+       displayLight(&ewLight);
+
+       // Control the North-South traffic light
+       switch (nsLight.state) {
+           case RED:
+               delay(15);  // Red light for 15 seconds
+               nsLight.state = GREEN;
+               ewLight.state = RED;
+               break;
+           case GREEN:
+               delay(10);  // Green light for 10 seconds
+               nsLight.state = YELLOW;
+               break;
+           case YELLOW:
+               delay(5);  // Yellow light for 5 seconds
+               nsLight.state = RED;
+               ewLight.state = GREEN;
+               break;
+       }
+
+       // Control the East-West traffic light
+       switch (ewLight.state) {
+           case RED:
+               // Red light duration is managed by North-South traffic light
+               break;
+           case GREEN:
+               sleep(10);  // Green light for 10 seconds
+               ewLight.state = YELLOW;
+               break;
+           case YELLOW:
+               sleep(5);  // Yellow light for 5 seconds
+               ewLight.state = RED;
+               nsLight.state = GREEN;
+               break;
+       }
+    cycles--;
+   }
+
+   return 0;
+}
+```
+
+<br> if you want to run the code continuously(infinite loop) then simply use **while(1)** as shown in task-2. for simulation purpose i am using the code to run for 5 cycles so i initialised the cycles and updated the code.<br>
+for this code the output is same as in Task-2 except the no of times the code is executed.<br>
+![image](https://github.com/Amrutha3515/vsdmini/assets/150571663/dae58623-0688-413e-85e9-30450cc64f77)
+
+ now, we can proceed with riscv and spike simulations. To get the obj file using  riscv use 
+ ```
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o program_name.o program_name.c
+```
+<br> in my case it is demo1.c then open a new terminal and enter
+```
+riscv64-unknown-elf-objdump -d program_name.o
+riscv64-unknown-elf-objdump -d program_name.o | less
+```
+![VirtualBox_vsdmini_25_06_2024_20_06_35](https://github.com/Amrutha3515/vsdmini/assets/150571663/b4679619-fe22-4142-9a35-c6587ebd5f4b)
+
+ ### For spike simulation
+
+ ```
+spike pk program_name.o
+```
+<br>
+To debugg the O file use
+
+```
+spike -d pk program_name.o
+```
+in my case it is demo1.o <br>
+
+
+![VirtualBox_vsdmini_25_06_2024_21_39_53](https://github.com/Amrutha3515/vsdmini/assets/150571663/d28ab05d-f99a-489a-87a1-328e5f55dc7a)
+
+### Now, Do the same steps using Ofast
+![image](https://github.com/Amrutha3515/vsdmini/assets/150571663/8ae5e502-25d7-4a5a-9175-0f007b71e021)
+![VirtualBox_vsdmini_25_06_2024_21_46_49](https://github.com/Amrutha3515/vsdmini/assets/150571663/a887d714-9e5c-4414-8e9d-4fe27d81bba0)
+![VirtualBox_vsdmini_25_06_2024_21_46_27](https://github.com/Amrutha3515/vsdmini/assets/150571663/d4e4ee8f-f690-4fd8-ae26-9372817e33e9)
+
+we can observe from this If you need your results to be very accurate and you want to be able to easily find and fix issues, use **-O1** and
+Use **-Ofast** If you need the simulation to run as fast as possible and are okay with a small chance of less precise results.
+
+
+
+
+
+
+
+
 </details>
 <details >
  <summary>Task-4</summary>
