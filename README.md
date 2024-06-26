@@ -197,8 +197,9 @@ we can observe that the Number of instructions is reduced with -Ofast
 # Reference:
 + https://www.udemy.com/course/vsd-a-complete-guide-to-install-open-source-eda-tools/
 + https://github.com/riscv-collab/riscv-gnu-toolchain
-+ https://photos.onedrive.com/share/E0E9B5EEF85B162E!105257?cid=E0E9B5EEF85B162E&resId=E0E9B5EEF85B162E!105257&authkey=!AFLC_zCyiQ0i1co&ithint=video&e=gdA9TW
-+ https://photos.onedrive.com/share/E0E9B5EEF85B162E!56283?cid=E0E9B5EEF85B162E&resId=E0E9B5EEF85B162E!56283&authkey=!AKfV5WV4yZsaIAc&ithint=video&e=ycX4fO
++ https://1drv.ms/v/s!Ai4WW_jutengg7dbp9XlZXjJmxogBw?e=ycX4fO
++ https://1drv.ms/v/s!Ai4WW_jutenghrYpUsL_MLKJDSLVyg?e=gdA9TW
++ https://1drv.ms/v/s!Ai4WW_jutengifpPDmIttaabnLw5nw?e=ULYlur
 </details>
 <details >
  <summary>Task-2</summary>
