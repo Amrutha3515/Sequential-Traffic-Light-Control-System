@@ -467,13 +467,76 @@ Use **-Ofast** If you need the simulation to run as fast as possible and are oka
 + https://1drv.ms/v/s!Ai4WW_jutengifwKKraoEerkS-LrnA?e=tGHh41
 + https://1drv.ms/v/s!Ai4WW_jutengg7dmZwxQmBY-JEGihg?e=A4ASgZ
 
-
-
-
-
-
-
 </details>
 <details >
  <summary>Task-4</summary>
+
+ + Identify instruction type and exact 32-bit instruction code in the instruction type format.
+  
+  RV32I can be divided into six basic instruction formats. R-type instructions for register-register operations, an I-type instructions for immediate and load operations, and S-type instructions for store operations. B-type instructions for conditional branch operations. U-type instructions for long immediate and J-type instructions for unconditional jumps.
+
+  ![WhatsApp Image 2024-02-22 at 17 29 06_b1e00065](https://github.com/Amrutha3515/RISC-V/assets/150571663/e06834ef-90e6-4b81-8ce4-9c720aff2562)
+  
+ +  add r6, r2, r1 	= R type instruction
++ sub r7, r1, r2	= R type instruction
++ and r8, r1, r3	= R type instruction
+ + or r9, r2, r5	= R type instruction
++ xor r10, r1, r4	= R type instruction
++ slt r11, r2, r4	= R type instruction
++ addi r12, r4, 5	= I type instruction
++ sw r3, r1, 2		= S type instruction
++ lw r13, r1, 2		= s type instruction
++ beq r0, r0, 15	= B type instruction
++ bne r0, r1, 20	= B type instruction
++ sll r15, r1, r2	= R type instruction
++ srl r16, r14, r2	= R type instruction
+ ``` 
+add r6, r2, r1
+0000000	00010	00001	000	00110	0110011
+
+sub r7, r1, r2
+
+0100000	00010	00001	000	00111	0110011
+
+and r8, r1, r3
+0000000	00011	00001	111	01000	0110011
+
+or r9, r2, r5
+0000000	00101	00010	110	01001	0110011
+
+xor r10, r1, r4
+
+0000000	00100	00001	100	01010	0110011
+slt r11, r2, r4
+
+0000000	00100	00010	010	01011	0110011
+
+addi r12, r4, 5
+
+0000000 000101   00100	000	01100	0010011
+
+sw r3, r1, 2 
+
+0000000	00011	00001	010	00010	0100011
+
+lw r13, r1, 2
+
+0000000 000010 00001 010 01101 0000011
+
+beq r0, r0, 15
+
+0000000 01111 00000 000 00000 1100011
+
+bne r0, r1, 20
+
+0000000 00101 00000 00001 001 00001 1100011
+
+sll r15, r1, r2
+
+0000000 00010 00001 001 01111 0110011
+
+srl r16, r14, r2
+
+0000000 00010 01110 101 10000 0110011
+```
 </details>
