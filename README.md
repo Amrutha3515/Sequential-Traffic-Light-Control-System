@@ -477,51 +477,51 @@ Use **-Ofast** If you need the simulation to run as fast as possible and are oka
 
   ![WhatsApp Image 2024-02-22 at 17 29 06_b1e00065](https://github.com/Amrutha3515/RISC-V/assets/150571663/e06834ef-90e6-4b81-8ce4-9c720aff2562)
   
- +  add r6, r2, r1 	= R type instruction
-+ sub r7, r1, r2	= R type instruction
-+ and r8, r1, r3	= R type instruction
- + or r9, r2, r5	= R type instruction
-+ xor r10, r1, r4	= R type instruction
-+ slt r11, r2, r4	= R type instruction
-+ addi r12, r4, 5	= I type instruction
-+ sw r3, r1, 2		= S type instruction
-+ lw r13, r1, 2		= s type instruction
+ +  add r1, r2, r3 	= R type instruction
++ sub r3, r1, r2	= R type instruction
++ and r2, r1, r3	= R type instruction
+ + or r8, r2, r5	= R type instruction
++ xor r8, r1, r4	= R type instruction
++ slt r10, r2, r4	= R type instruction
++ addi r12, r3, 5	= I type instruction
++ sw r3, r1, 4		= S type instruction
++ lw r13, r11, 2		= I type instruction
 + beq r0, r0, 15	= B type instruction
 + bne r0, r1, 20	= B type instruction
-+ sll r15, r1, r2	= R type instruction
-+ srl r16, r14, r2	= R type instruction
++ sll r15, r11, 2	= R type instruction
++ srl r11, r14, r2	= R type instruction
  ``` 
-add r6, r2, r1
-0000000	00010	00001	000	00110	0110011
+add r1, r2, r3
+0000000	00011	00010	000	00001	0110011
 
-sub r7, r1, r2
+sub r3, r1, r2
 
-0100000	00010	00001	000	00111	0110011
+0000000	00010	00001	000	00011	0110011
 
-and r8, r1, r3
-0000000	00011	00001	111	01000	0110011
+and r2, r1, r3
+0000000	00011	00001	111	00010	0110011
 
-or r9, r2, r5
-0000000	00101	00010	110	01001	0110011
+or r8, r2, r3
+0000000	00101	00010	110	01000	0110011
 
-xor r10, r1, r4
+xor r8, r1, r4
 
-0000000	00100	00001	100	01010	0110011
-slt r11, r2, r4
+0000000	00100	00001	100	01000	0110011
+slt r10, r2, r4
 
-0000000	00100	00010	010	01011	0110011
+0000000	00100	00010	010	01010	0110011
 
-addi r12, r4, 5
+addi r12, r3, 5
 
-0000000 000101   00100	000	01100	0010011
+0000000 000101   00011	000	01100	0010011
 
-sw r3, r1, 2 
+sw r3, r1, 4
 
-0000000	00011	00001	010	00010	0100011
+0000000	00011	00001	010	00100	0100011
 
-lw r13, r1, 2
+lw r13, r11, 2
 
-0000000 000010 00001 010 01101 0000011
+0000000 000010 01011 010 01101 0000011
 
 beq r0, r0, 15
 
@@ -529,14 +529,14 @@ beq r0, r0, 15
 
 bne r0, r1, 20
 
-0000000 00101 00000 00001 001 00001 1100011
+0000000 00001 00000 00001 001 00101 1100011
 
 sll r15, r1, r2
 
-0000000 00010 00001 001 01111 0110011
+0000000 00010 01011 101 10000 0110011
 
-srl r16, r14, r2
+srl r16, r11, r2
 
-0000000 00010 01110 101 10000 0110011
+0000000 00010 01011 001 01111 0110011
 ```
 </details>
