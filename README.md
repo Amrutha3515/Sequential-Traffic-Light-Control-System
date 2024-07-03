@@ -489,7 +489,7 @@ Use **-Ofast** If you need the simulation to run as fast as possible and are oka
 + beq r0, r0, 15	= B type instruction
 + bne r0, r1, 20	= B type instruction
 + sll r15, r11, 2	= R type instruction
-+ srl r11, r14, r2	= R type instruction
++ srl r16, r11, r2	= R type instruction
  ``` 
 add r1, r2, r3
 0000000	00011	00010	000	00001	0110011
@@ -501,7 +501,7 @@ sub r3, r1, r2
 and r2, r1, r3
 0000000	00011	00001	111	00010	0110011
 
-or r8, r2, r3
+or r8, r2, r5
 0000000	00101	00010	110	01000	0110011
 
 xor r8, r1, r4
