@@ -540,3 +540,29 @@ srl r16, r11, r2
 0000000 00010 01011 001 01111 0110011
 ```
 </details>
+<details>
+<summary>Task-5</summary>
+ This Task is to verifying the waveforms of the instructions using GTKWAVE.
+
+ + For this first clone the reference repo by using the command and make sure you are in right path by verifying using the **cd **command
+ ```
+gitclone https://github.com/vinayrayapati/rv32i/
+```
+and then change the directory to the file which you cloned in my case it is **rv32i**
+
+Now,check the files whether they re present in that directory or not by using 
+
+```
+ls -all
+```
+now to open the gtkwave enter the following commands 
+```
+iverilog -o rv32i1 iiitb_rv32i.v iiitb_rv32i_tb.v ./rv32i1
+./rv32i  //for opening the vcd
+gtkwave iiitb_rv32i.vcd
+```
+![17](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/b6eeafbb-2f9c-4600-9f3a-9f70a2cbe099)
+
+
+
+</details>
