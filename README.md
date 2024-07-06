@@ -562,6 +562,16 @@ iverilog -o rv32i1 iiitb_rv32i.v iiitb_rv32i_tb.v ./rv32i1
 gtkwave iiitb_rv32i.vcd
 ```
 ![17](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/b6eeafbb-2f9c-4600-9f3a-9f70a2cbe099)
+![1](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/ee9681c3-f9da-433c-a206-0148b696b474)
+![2](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/0dd499ec-0c38-4c61-a4e9-7fe317715841)
+![4](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/8f0a5258-a26f-45bb-b612-40d8e617d73a)
+![5](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/50ceebc1-25c2-4575-b708-09aa4ed910a6)
+![6](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/5aec97e1-9ed6-4e64-bb31-8b99fdaa1f47)
+![7](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/55cc20e4-30c6-4877-96e6-82297cf76878)
+![25](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/dc44c3f0-fef3-4a2e-a2e6-35f419ccbc18)
+![26](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/e23d95d3-15b1-48ca-840c-6eea33ce129a)
++ These images are for the reference instructions and by same process we can get our instructions waveforms by modifying the verilog code and testbench as per our instructions.
+
 
 
 
