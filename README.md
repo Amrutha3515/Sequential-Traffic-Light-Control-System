@@ -587,5 +587,5 @@ gtkwave iiitb_rv32i.vcd
 
 ![SLL](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/9e03fdd2-a4b3-47ba-83f7-e1af44441abd)
 
-
+**Note: in the above pictures YELLOW are the INPUTS and RED are the OUTPUTS**
 </details>
