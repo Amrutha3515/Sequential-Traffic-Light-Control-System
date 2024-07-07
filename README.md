@@ -544,10 +544,12 @@ srl r16, r11, r2
 <summary>Task-5</summary>
  This Task is to verifying the waveforms of the instructions using GTKWAVE.
 
- + For this first clone the reference repo by using the command and make sure you are in right path by verifying using the **cd **command
+ + For this first clone the reference repo by using the command and make sure you are in right path by verifying using the **cd** command
  ```
 gitclone https://github.com/vinayrayapati/rv32i/
 ```
+![image](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/fc18e428-2bd5-4ba3-81cc-a0d1555c691d)
+
 and then change the directory to the file which you cloned in my case it is **rv32i**
 
 Now,check the files whether they re present in that directory or not by using 
@@ -555,24 +557,27 @@ Now,check the files whether they re present in that directory or not by using
 ```
 ls -all
 ```
+![image](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/b7d25396-98b0-4c63-abf4-57eb538ffe04)
+
 now to open the gtkwave enter the following commands 
 ```
 iverilog -o rv32i1 iiitb_rv32i.v iiitb_rv32i_tb.v ./rv32i1
 ./rv32i  //for opening the vcd
 gtkwave iiitb_rv32i.vcd
 ```
-![17](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/b6eeafbb-2f9c-4600-9f3a-9f70a2cbe099)
-![1](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/ee9681c3-f9da-433c-a206-0148b696b474)
-![2](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/0dd499ec-0c38-4c61-a4e9-7fe317715841)
-![4](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/8f0a5258-a26f-45bb-b612-40d8e617d73a)
-![5](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/50ceebc1-25c2-4575-b708-09aa4ed910a6)
-![6](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/5aec97e1-9ed6-4e64-bb31-8b99fdaa1f47)
-![7](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/55cc20e4-30c6-4877-96e6-82297cf76878)
-![25](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/dc44c3f0-fef3-4a2e-a2e6-35f419ccbc18)
-![26](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/e23d95d3-15b1-48ca-840c-6eea33ce129a)
-+ These images are for the reference instructions and by same process we can get our instructions waveforms by modifying the verilog code and testbench as per our instructions.
+![9](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/288a0886-4ab7-4357-9ded-4f827a728112)
+![VirtualBox_vsdmini_06_07_2024_15_38_44](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/ab6f41dd-c0ac-443e-bb56-aa726b3049f2)
+**ADD**
 
-
+**SUB**
+**AND**
+**OR**
+**XOR**
+**SLT**
+**ADDI**
+**BEQ**
+**BNE**
+**SLL**
 
 
 </details>
