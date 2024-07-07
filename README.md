@@ -568,16 +568,24 @@ gtkwave iiitb_rv32i.vcd
 ![9](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/288a0886-4ab7-4357-9ded-4f827a728112)
 ![VirtualBox_vsdmini_06_07_2024_15_38_44](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/ab6f41dd-c0ac-443e-bb56-aa726b3049f2)
 **ADD**
-
+![ADD](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/962b5880-5a56-45a1-ba22-4bc58d84432e)
 **SUB**
+![SUB](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/1c4eccae-76ee-4459-b38d-ac1bb8ea54cc)
 **AND**
+![AND](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/593c3db3-04e1-4d09-a0b1-e63a85a2be71)
 **OR**
+![OR](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/7f57b2bb-6cd5-495d-bda5-afaa06a4a315)
 **XOR**
+![XOR](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/c48222ea-807c-4cf4-b24d-772fe26c8bd6)
 **SLT**
+![SLT](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/f83f9e69-9d35-414d-812e-c8fc948c7317)
 **ADDI**
+![ADDI](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/cf546dad-6d29-4b81-b140-6d70011abd89)
 **BEQ**
-**BNE**
+![BEQ](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/815e3ab6-3782-4e0d-99cf-9e35b172e413)
 **SLL**
+
+![SLL](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/9e03fdd2-a4b3-47ba-83f7-e1af44441abd)
 
 
 </details>
