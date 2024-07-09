@@ -588,11 +588,28 @@ gtkwave iiitb_rv32i.vcd
 ![SLL](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/9e03fdd2-a4b3-47ba-83f7-e1af44441abd)
 
 **Note: in the above pictures YELLOW are the INPUTS and RED are the OUTPUTS**
+
+The Standard ISA Format of the Instructions is
+```
++ ADD r1, r2, r3    32h'003100B3 
++ SUB r3, r1, r2    32h'402081B3
++ AND r2, r1, r3    32h'0030F133
++ OR r8, r2, r5     32h'00516433
++ XOR r8, r1, r4    32h'0040C433
++ SLT r10, r2, r4   32h'00412533
++ ADDI r12, r3, 5   32h'00918613
++ SW r3, r1, 4      32h'0030A223
++ SRL r16, r11, r2  32h'0025D833
++ BNE r0, r1, 20    32h'02101463
++ BEQ r0, r0, 15    32h'00000F63
++ LW r13, r11, 2    32h'0025A683
++ SLL r15, r11, r2  32h'002597B3
+```
+
 </details>
 <details>
  <summary>Task-6</summary>
-  
-
+ 
  **Overview:** <br>
  A sequential traffic light controller using the VSDSquadron Mini (CH32V00X) involves creating a system that controls traffic lights in a sequential manner, typically found at intersections. The project involves both hardware and software components, and its primary goal is to manage traffic flow efficiently.
 
