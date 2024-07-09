@@ -589,3 +589,139 @@ gtkwave iiitb_rv32i.vcd
 
 **Note: in the above pictures YELLOW are the INPUTS and RED are the OUTPUTS**
 </details>
+<details>
+ <summary>Task-6</summary>
+  
+
+ **Overview:** <br>
+ A sequential traffic light controller using the VSDSquadron Mini (CH32V00X) involves creating a system that controls traffic lights in a sequential manner, typically found at intersections. The project involves both hardware and software components, and its primary goal is to manage traffic flow efficiently.
+
+**Project Components**<br>
++ VSDSquadron Mini (CH32V00X) Board: The central microcontroller unit (MCU) used to control the traffic lights.
++ Traffic Light LEDs: Two sets of red, yellow, and green LEDs representing traffic lights for both directions.
++ Resistors: Used to limit the current to the LEDs.
++ Power Supply: To power the board and LEDs.
++ Wiring/Breadboard: For connecting the components.
+
+**Traffic Light Sequence**<br>
+For two directions, the sequence might look like this:<br>
+
++ North-South Green, East-West Red: North-South traffic moves while East-West traffic stops.
++ North-South Yellow, East-West Red: North-South traffic slows to stop.
++ North-South Red, East-West Green: East-West traffic moves while North-South traffic stops.
++ North-South Red, East-West Yellow: East-West traffic slows to stop.<br>
+**Circuit Connection :**
+  ![WhatsApp Image 2024-07-08 at 22 45 01_ea58e33f](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/d829303a-7732-4e0a-af0c-c8268b8719a7)
+
+**Sample Code:**
+```
+#include <ch32v00x.h>
+#include <debug.h>
+
+// Define the GPIO pins for traffic lights
+#define GREEN_LIGHT_PIN GPIO_Pin_2        // Green light for north-south Direction
+#define YELLOW_LIGHT_PIN GPIO_Pin_3      // Yellow light for north-south Direction
+#define RED_LIGHT_PIN GPIO_Pin_4        // Red light for north-south Direction
+#define GL_PIN GPIO_Pin_5              // Green light for East-West Direction
+#define YL_PIN GPIO_Pin_6             // Yellow lightfor East-West Direction
+#define RL_PIN GPIO_Pin_0            // Red light for East-West Direction
+
+// Function prototypes
+void GPIO_Config(void);
+void TrafficLightControl(void);
+
+// GPIO configuration function
+void GPIO_Config(void) {
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE); // Enable clock for Port D
+
+    // Configure Green light pin as output for NS Direction
+
+    GPIO_InitStructure.GPIO_Pin = GREEN_LIGHT_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    // Configure Yellow light pin as output for NS Direction
+
+    GPIO_InitStructure.GPIO_Pin = YELLOW_LIGHT_PIN;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    // Configure Red light pin as output for NS Direction
+
+    GPIO_InitStructure.GPIO_Pin = RED_LIGHT_PIN;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+   // Configure Yellow light pin as output for EW Direction
+
+    GPIO_InitStructure.GPIO_Pin = YL_PIN;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+  // Configure Green light pin as output for EW Direction
+
+    GPIO_InitStructure.GPIO_Pin = GL_PIN;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+     // Configure Red light pin as output for EW Direction
+
+    GPIO_InitStructure.GPIO_Pin = RL_PIN;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+}
+
+
+void TrafficLightControl(void) {
+    // Green light on
+    GPIO_WriteBit(GPIOD, GREEN_LIGHT_PIN, SET);
+    GPIO_WriteBit(GPIOD, YELLOW_LIGHT_PIN, RESET);
+    GPIO_WriteBit(GPIOD, RED_LIGHT_PIN, RESET);
+     GPIO_WriteBit(GPIOD, RL_PIN, SET);
+    GPIO_WriteBit(GPIOD, YL_PIN, RESET);
+    GPIO_WriteBit(GPIOD, GL_PIN, RESET);
+    Delay_Ms(5000); // Keep green light on for 5 seconds
+
+    // Yellow light on
+    GPIO_WriteBit(GPIOD, GREEN_LIGHT_PIN, RESET);
+    GPIO_WriteBit(GPIOD, YELLOW_LIGHT_PIN, SET);
+    GPIO_WriteBit(GPIOD, RED_LIGHT_PIN, RESET);
+    GPIO_WriteBit(GPIOD, RL_PIN, SET);
+    GPIO_WriteBit(GPIOD, YL_PIN, RESET);
+    GPIO_WriteBit(GPIOD, GL_PIN, RESET);
+    Delay_Ms(2000); // Keep yellow light on for 2 seconds
+
+    // Red light on
+    GPIO_WriteBit(GPIOD, GREEN_LIGHT_PIN, RESET);
+    GPIO_WriteBit(GPIOD, YELLOW_LIGHT_PIN, RESET);
+    GPIO_WriteBit(GPIOD, RED_LIGHT_PIN, SET);
+    GPIO_WriteBit(GPIOD, RL_PIN, RESET);
+    GPIO_WriteBit(GPIOD, YL_PIN, RESET);
+    GPIO_WriteBit(GPIOD, GL_PIN, SET);
+    Delay_Ms(5000); // Keep red light on for 5 seconds
+
+    GPIO_WriteBit(GPIOD, GREEN_LIGHT_PIN, RESET);
+    GPIO_WriteBit(GPIOD, YELLOW_LIGHT_PIN, RESET);
+    GPIO_WriteBit(GPIOD, RED_LIGHT_PIN, SET);
+    GPIO_WriteBit(GPIOD, RL_PIN, RESET);
+    GPIO_WriteBit(GPIOD, YL_PIN, SET);
+    GPIO_WriteBit(GPIOD, GL_PIN, RESET);
+    Delay_Ms(5000);
+}
+
+int main(void) {
+
+    // SystemCoreClockUpdate();
+    Delay_Init();
+    GPIO_Config();
+
+    while(1) {
+        TrafficLightControl(); // Cycle through the traffic lights
+    }
+}
+
+// Interrupt handlers (if needed)
+void NMI_Handler(void) {}
+void HardFault_Handler(void) {
+    while (1) {}
+}
+```
+</details>
