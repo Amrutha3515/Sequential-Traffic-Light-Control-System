@@ -631,14 +631,14 @@ For two directions, the sequence might look like this:<br>
   ![WhatsApp Image 2024-07-08 at 22 45 01_ea58e33f](https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/d829303a-7732-4e0a-af0c-c8268b8719a7)
 
 **Pin Connections:**
-
-+ NS_GREEN LIGHT<br>    GPIOD 2
-+ NS_YELLOW LIGHT<br>   GPIOD 3
-+ NS_RED LIGHT<br>      GPIOD 4
-+ EW_GREEN LIGHT<br>    GPIOD 5
-+ EW_YELLOW LIGHT<br>   GPIOD 6
-+ EW_RED LIGHT<br>      GPIOD 0
-
+```
+ NS_GREEN LIGHT        GPIOD 2
+ NS_YELLOW LIGHT       GPIOD 3
+ NS_RED LIGHT          GPIOD 4
+ EW_GREEN LIGHT        GPIOD 5
+ EW_YELLOW LIGHT       GPIOD 6
+ EW_RED LIGHT          GPIOD 0
+```
 **Sample Code:**
 ```
 #include <ch32v00x.h>
