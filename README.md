@@ -752,7 +752,8 @@ void HardFault_Handler(void) {
 ```
 **Application Video**
 
-https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/75c8eaa1-2439-496d-94a5-3206b26b313e
+https://github.com/Amrutha3515/Sequential-Traffic-Light-Control-System/assets/150571663/f5906405-0f9f-464d-8957-e4db0d6eec41
+
 
 
 
